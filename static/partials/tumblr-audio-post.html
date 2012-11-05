@@ -1,18 +1,31 @@
-<i class="icon-music"></i>
-<div ng-bind-html="post.player"></div>
-<dl>
-	<dt>Caption</dt>
-		<dd ng-bind-html="post.caption"></dd>
-	<dt>Plays</dt>
-		<dd>{{post.plays}}</dd>
-	<dt>Artist</dt>
-		<dd>{{post.artist}}</dd>
-	<dt>Album</dt>
-		<dd>{{post.album}}</dd>
-	<dt>Track Name</dt>
-		<dd>{{post.track_name}}</dd>
-	<dt>Track Number</dt>
-		<dd>{{post.track_number}}</dd>
-	<dt>Year</dt>
-		<dd>{{post.year}}</dd>
+<div ng-bind-html-unsafe="post.player"></div>
+<dl class="dl-horizontal">
+	<div ng-show="post.caption">
+		<dt>Caption</dt>
+			<dd ng-bind-html="post.caption"></dd>
+	</div>
+	<div ng-show="post.plays">
+		<dt>Plays</dt>
+			<dd><span class="label label-success">{{post.plays}}</span></dd>
+	</div>
+	<div ng-show="post.artist">
+		<dt>Artist</dt>
+			<dd>{{post.artist}}</dd>
+	</div>
+	<div ng-show="post.album">
+		<dt>Album</dt>
+			<dd>{{post.album}}</dd>
+	</div>
+	<div ng-show="post.track_name">
+		<dt>Track Name</dt>
+			<dd>{{post.track_name}}</dd>
+	</div>
+	<div ng-show="post.track_number">
+		<dt>Track Number</dt>
+			<dd>{{post.track_number}}</dd>
+	</div>
+	<div ng-show="post.year">
+		<dt>Year</dt>
+			<dd>{{post.year}}</dd>
+	</div>
 </dl>

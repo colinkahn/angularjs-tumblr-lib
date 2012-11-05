@@ -7,7 +7,7 @@ var app = angular.module('Tumblr', ['ngResource']).
     });
 
 api_key = '3Uj5hvL773MVNlhFJC5gyVftNh4Qxci3hqoPkU3nAzp9bFJ8UB'
-base_hostname = 'youmightfindyourself.com' //'w1r3.tumblr.com'
+base_hostname = 'demo.tumblr.com'
 
 app.run(function($rootScope, $resource) {
     $rootScope.tumblr = $resource('http://api.tumblr.com/v2/blog/:base_hostname/:action',
@@ -30,7 +30,7 @@ app.run(function($rootScope, $resource) {
                         })
                     })
                 }
-                if (post.player) {
+                if (post.type == 'video' && post.player) {
                     post.player.forEach(function(embed){
                         var key = 'video_embed_'+embed.width
                         post[key] = embed.embed_code
