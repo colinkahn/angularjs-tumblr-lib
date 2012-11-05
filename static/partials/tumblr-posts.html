@@ -1,11 +1,11 @@
 <div>
 	<div ng-show="!posts.length">
-		<div ng-include src="'partials/tumblr-loading.html'"></div>
+		<div ng-include src="'/static/partials/tumblr-loading.html'"></div>
 	</div>
 	<div ng-repeat="post in posts" class="media">
-		<div ng-include src="'partials/tumblr-post-flag.html'"></div>
+		<div ng-include src="'/static/partials/tumblr-post-flag.html'"></div>
 		<div ng-include src="post.template"></div>
-		<div ng-include src="'partials/tumblr-post-utils.html'"></div>
+		<div ng-include src="'/static/partials/tumblr-post-utils.html'"></div>
 	</div>
 	<ul class="pager" ng-show="posts.length">
 		<li class="previous" ng-class="{disabled:firstPage()}"><a ng-href="#{{stepPageUrl(-1)}}">&larr; Previous</a></li>

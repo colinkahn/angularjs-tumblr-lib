@@ -1,9 +1,9 @@
 <!doctype html>
 <html ng-app="Tumblr">
 <head>
-	<script type="text/javascript" src="js/angular-1.0.0rc4.min.js"></script>
-	<script type="text/javascript" src="js/angular-resource-1.0.0rc4.min.js"></script>
-	<script type="text/javascript" src="js/angular-tumblr-lib.js"></script>
+	<script type="text/javascript" src="/static/js-lib/angular-1.0.0rc4.min.js"></script>
+	<script type="text/javascript" src="/static/js-lib/angular-resource-1.0.0rc4.min.js"></script>
+	<script type="text/javascript" src="/static/js/angular-tumblr-lib.js"></script>
 
 	<!-- Twitter Bootstrap -->
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" type="text/css" />
@@ -31,16 +31,19 @@
 	}
 	</style>
 </head>
+{% raw %}
 <body ng-controller="TumblrCtrl" class="container">
 	<div class="row">
-		<div class="page-header span4">
+		<div class="page-header span4" data-spy="affix" data-offset-top="0">
 			<h1><a ng-href="#/">{{blog.title}}</a> <small ng-bind-html="blog.description"></small></h1>
 		</div>
 
-		<div ng-view class="span7 offset1"></div>
+		<div ng-view class="span7 offset5"></div>
 	</div>
 
 	<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
 	<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
+	<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-affix.js"></script>
 </body>
+{% endraw %}
 </html>

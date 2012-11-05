@@ -1,13 +1,13 @@
 var app = angular.module('Tumblr', ['ngResource']).
     config(function($routeProvider){
         $routeProvider.
-            when('/page/:page', {template:'partials/tumblr-posts.html', controller:"TumblrPostsCtrl"}).
-            when('/post/:id', {template: 'partials/tumblr-post-detail.html', controller:"TumblrPostDetailCtrl"}).
+            when('/page/:page', {template:'/static/partials/tumblr-posts.html', controller:"TumblrPostsCtrl"}).
+            when('/post/:id', {template: '/static/partials/tumblr-post-detail.html', controller:"TumblrPostDetailCtrl"}).
             otherwise({redirectTo:'/page/1', template:'partials/tumblr-posts.html', controller:"TumblrPostsCtrl"})
     });
 
 api_key = '3Uj5hvL773MVNlhFJC5gyVftNh4Qxci3hqoPkU3nAzp9bFJ8UB'
-base_hostname = 'youmightfindyourself.com' //'w1r3.tumblr.com' 
+base_hostname = 'youmightfindyourself.com' //'w1r3.tumblr.com'
 
 app.run(function($rootScope, $resource) {
     $rootScope.tumblr = $resource('http://api.tumblr.com/v2/blog/:base_hostname/:action',
@@ -17,7 +17,7 @@ app.run(function($rootScope, $resource) {
     $rootScope.simplifyJSONProperties = function(json) {
         if (json.response.posts) {
             json.response.posts.forEach(function(post){
-                post.template = 'partials/tumblr-'+post.type+'-post.html'
+                post.template = '/static/partials/tumblr-'+post.type+'-post.html'
                 if (post.photos) {
                     post.photos.forEach(function(photo){
                         photo.alt_sizes.forEach(function(alt_size){
