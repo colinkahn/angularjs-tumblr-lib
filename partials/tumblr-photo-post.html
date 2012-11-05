@@ -1,0 +1,17 @@
+<div ng-show="equals(post.photos.length, 1)">
+	<div ng-repeat="photo in post.photos">
+		<img ng-src="{{photo.photo_url_500}}">
+	</div>
+</div>
+
+<div id="carousel-{{post.id}}" class="carousel slide" ng-show="!equals(post.photos.length, 1)">
+	<!-- Carousel items -->
+	<div class="carousel-inner">
+		<div ng-repeat="photo in post.photos" ng-class="{active:equals($index,0),item:true}">
+			<img ng-src="{{photo.photo_url_500}}">
+		</div>
+	</div>
+	<!-- Carousel nav -->
+	<a class="carousel-control left" href="#carousel-{{post.id}}" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#carousel-{{post.id}}" data-slide="next">&rsaquo;</a>
+</div>

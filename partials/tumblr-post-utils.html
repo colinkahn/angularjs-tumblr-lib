@@ -1,0 +1,13 @@
+<dl class="dl-horizontal">
+  <div ng-show="post.tags.length">
+	  <dt>Tags</dt>
+	  	<dd>
+			<span ng-repeat="tag in post.tags">
+				<span class="label"><a ng-href="http://www.tumblr.com/tagged/{{tag}}">#{{tag}}</a></span>&nbsp;
+			</span>
+	  	</dd>
+	</div>
+  	<dt>Permalink</dt>
+  		<dd><a ng-href="#/post/{{post.id}}/">{{post.date}}</a>
+</dl>
+<hr ng-show="!post.is_detail">

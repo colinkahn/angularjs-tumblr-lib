@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="Tumblr">
+<head>
+	<script type="text/javascript" src="js/angular-1.0.0rc4.min.js"></script>
+	<script type="text/javascript" src="js/angular-resource-1.0.0rc4.min.js"></script>
+	<script type="text/javascript" src="js/angular-tumblr-lib.js"></script>
+
+	<!-- Twitter Bootstrap -->
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" type="text/css" />
+	<style>
+	.label a {
+		color:white;
+		text-decoration:none;
+	}
+
+	.media {
+		overflow: visible;
+	}
+
+	.post-flag {
+		position:relative;
+	}
+
+	.post-flag .btn-group {
+		position:absolute;
+		left:-70px;
+	}
+
+	.post-flag .btn-group .btn {
+		width:14px;
+	}
+	</style>
+</head>
+<body ng-controller="TumblrCtrl" class="container">
+	<div class="row">
+		<div class="page-header span4">
+			<h1><a ng-href="#/">{{blog.title}}</a> <small ng-bind-html="blog.description"></small></h1>
+		</div>
+
+		<div ng-view class="span7 offset1"></div>
+	</div>
+
+	<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
+</body>
+</html>
