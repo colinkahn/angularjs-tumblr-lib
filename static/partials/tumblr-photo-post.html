@@ -1,13 +1,13 @@
-<div ng-show="equals(post.photos.length, 1)">
+<div ng-show="post.photos.length==1">
 	<div ng-repeat="photo in post.photos">
 		<img ng-src="{{photo.photo_url_500}}">
 	</div>
 </div>
 
-<div id="carousel-{{post.id}}" class="carousel slide" ng-show="!equals(post.photos.length, 1)">
+<div id="carousel-{{post.id}}" class="carousel slide" ng-show="post.photos.length!=1">
 	<!-- Carousel items -->
 	<div class="carousel-inner">
-		<div ng-repeat="photo in post.photos" ng-class="{active:equals($index,0),item:true}">
+		<div ng-repeat="photo in post.photos" ng-class="{'active':$index<1}" class="item">
 			<img ng-src="{{photo.photo_url_500}}">
 		</div>
 	</div>

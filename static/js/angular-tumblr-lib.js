@@ -39,6 +39,11 @@ app.run(function($rootScope, $resource) {
             })
         }
     }
+
+    $rootScope.like = function(post) {
+        var url = 'http://www.tumblr.com/like/'+post.reblog_key+'?id='+post.id
+        console.log(url)
+    }
 });
 
 function TumblrCtrl($scope, $resource, $rootScope) {
@@ -74,8 +79,10 @@ function TumblrPostsCtrl($scope, $resource, $routeParams, $location, $rootScope)
         }
     }
 
-    $scope.equals = function(o1,o2) {
-        return angular.equals(o1,o2)
+    $scope.like = function(post) {
+        var url = 'http://www.tumblr.com/like/'+post.reblog_key+'?id='+post.id
+        post.liked = true
+        jQuery('body').append('<iframe src="'+url+'" style="position:absolute;left:-9999em">')
     }
 }
 
@@ -87,8 +94,4 @@ function TumblrPostDetailCtrl($scope, $resource, $routeParams, $location, $rootS
         $scope.post = json.response.posts[0]
         $scope.post.is_detail = true
     })
-
-    $scope.equals = function(o1,o2) {
-        return angular.equals(o1,o2)
-    }
 }
